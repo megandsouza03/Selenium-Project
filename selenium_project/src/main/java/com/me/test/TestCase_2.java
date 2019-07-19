@@ -3,6 +3,8 @@ package com.me.test;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,14 +13,21 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class TestCase_2 {
 
-    public ExtentTest test;
+    WebDriver driver ;
+    ExtentTest test;
+
+    @BeforeEach
+    public void setUpTest(){
+        System.setProperty("webdriver.chrome.driver","/Users/megandsouza/Desktop/chromedriver");
+        driver = new ChromeDriver();
+        test = CaptchCheck.extent.startTest("TestCase_2");
+    }
+
 
     @Test
-    public void runTest(ExtentReports extent) throws Exception {
+    public void runTest() throws Exception {
 
-        System.setProperty("webdriver.chrome.driver", "/Users/megandsouza/Desktop/chromedriver");
-        WebDriver driver = new ChromeDriver();
-        test = extent.startTest("TestCase_2");
+
         test.log(LogStatus.INFO,"Expected: [First Page: Home Page] -> [Final Page: HomePage with user signed in]");
 
         //Creating an instance of a Chrome Driver
@@ -43,7 +52,7 @@ public class TestCase_2 {
         driver.findElement(By.id("signInSubmit")).click();
         Thread.sleep(1000);
 
-        CaptchCheck.checkForCaptch(driver,test,extent);
+        CaptchCheck.checkForCaptch(driver,test,CaptchCheck.extent);
 
         WebElement name = driver.findElement(By.xpath("//*[@id=\"nav-link-accountList\"]")).findElement(By.className("nav-line-1"));
         System.out.println(name.getText());
@@ -63,11 +72,13 @@ public class TestCase_2 {
 
         }
 
-        extent.endTest(test);
-
-        extent.flush();
-
-        driver.quit();
-
     }
+
+    @AfterEach
+    public void endTest(){
+        CaptchCheck.extent.endTest(test);
+        CaptchCheck.extent.flush();
+        driver.quit();
+    }
+
 }

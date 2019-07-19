@@ -4,6 +4,8 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 import org.apache.commons.io.FileUtils;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,14 +15,19 @@ import java.io.File;
 
 public class TestCase_1_Positive {
 
-    public ExtentTest test;
+    WebDriver driver ;
+    ExtentTest test;
+
+    @BeforeEach
+    public void setUpTest(){
+        System.setProperty("webdriver.chrome.driver","/Users/megandsouza/Desktop/chromedriver");
+        driver = new ChromeDriver();
+        test = CaptchCheck.extent.startTest("TestCase_1_Positive");
+    }
 
     @Test
-    public void runTest(ExtentReports extent) throws Exception {
+    public void runTest() throws Exception {
 
-        System.setProperty("webdriver.chrome.driver","/Users/megandsouza/Desktop/chromedriver");
-        WebDriver driver = new ChromeDriver();
-        test = extent.startTest("TestCase_1_Positive");
         //Creating an instance of a Chrome Driver
         test.log(LogStatus.INFO,"Expected: [First Page: Home Page] -> [Final Page: Authentication Required Page]");
 
@@ -62,7 +69,7 @@ public class TestCase_1_Positive {
         // Checking for the alert - missing customer name
         Thread.sleep(1500);
 
-        CaptchCheck.checkForCaptch(driver,test,extent);
+        CaptchCheck.checkForCaptch(driver,test,CaptchCheck.extent);
 
 //        //-----CAPTCHA-------------
 //        try {
@@ -102,15 +109,16 @@ public class TestCase_1_Positive {
 
         }
 
-        extent.endTest(test);
-
-        extent.flush();
-
-        driver.quit();
-
-
 
     }
+
+    @AfterEach
+    public void endTest(){
+        CaptchCheck.extent.endTest(test);
+        CaptchCheck.extent.flush();
+        driver.quit();
+    }
+
 
 
 }

@@ -10,6 +10,8 @@ import org.openqa.selenium.WebElement;
 
 public class CaptchCheck {
 
+    public static ExtentReports extent = new ExtentReports("/Users/megandsouza/Desktop/seleniumReports/Amazon_Selenium_Basic_Function_Test.html");
+
     public static void checkForCaptch(WebDriver driver, ExtentTest test, ExtentReports extent) throws Exception {
         try {
             WebElement error = driver.findElement(By.id("auth-error-message-box")).findElement(By.className("a-list-item"));

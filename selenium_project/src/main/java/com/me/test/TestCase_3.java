@@ -3,6 +3,8 @@ package com.me.test;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -12,14 +14,19 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class TestCase_3 {
 
-    public ExtentTest test;
+    WebDriver driver ;
+    ExtentTest test;
+
+    @BeforeEach
+    public void setUpTest(){
+        System.setProperty("webdriver.chrome.driver","/Users/megandsouza/Desktop/chromedriver");
+        driver = new ChromeDriver();
+        test = CaptchCheck.extent.startTest("TestCase_3");
+    }
+
 
     @Test
-    public void runTest(ExtentReports extent) throws Exception {
-
-        System.setProperty("webdriver.chrome.driver", "/Users/megandsouza/Desktop/chromedriver");
-        WebDriver driver = new ChromeDriver();
-        test = extent.startTest("TestCase_3");
+    public void runTest() throws Exception {
         test.log(LogStatus.INFO,"Expected: [First Page: Home Page] -> [Final Page: Enter Shipping Address]");
         driver.get("http://www.amazon.com/");
         Thread.sleep(1000);
@@ -39,7 +46,7 @@ public class TestCase_3 {
 
         String screenshotPath = ScreenShots.takeScreenshot(driver,"T3AddToCart");
         test.log(LogStatus.INFO,test.addScreenCapture(screenshotPath));
-//
+
         WebElement addToCart = driver.findElement(By.id("add-to-cart-button"));
         addToCart.click();
 
@@ -55,11 +62,6 @@ public class TestCase_3 {
         driver.findElement(By.xpath("//*[@id=\"sc-buy-box-ptc-button\"]/span/input")).click();
         Thread.sleep(1000);
 
-//        test.log(LogStatus.INFO, "Sign-Up Page");
-//        test.log(LogStatus.INFO,test.addScreenCapture(screenshotPath));
-        //Click on the Create Account Button
-//        WebElement sighInButton = driver.findElement(By.xpath("//*[@id=\"nav-link-accountList\"]"));
-//        sighInButton.click();
 
         WebElement apEmail = driver.findElement(By.id("ap_email"));
         apEmail.sendKeys("denisansah@yahoo.com");
@@ -73,7 +75,7 @@ public class TestCase_3 {
         driver.findElement(By.id("signInSubmit")).click();
         Thread.sleep(1000);
 
-        CaptchCheck.checkForCaptch(driver,test,extent);
+        CaptchCheck.checkForCaptch(driver,test,CaptchCheck.extent);
 
         String title = driver.getTitle();
 
@@ -93,16 +95,13 @@ public class TestCase_3 {
             test.log(LogStatus.INFO,"Actual: Error -> Check screenshots");
 
         }
-
-        extent.endTest(test);
-
-        extent.flush();
-
-        driver.quit();
-
-
     }
 
-
+    @AfterEach
+    public void endTest(){
+        CaptchCheck.extent.endTest(test);
+        CaptchCheck.extent.flush();
+        driver.quit();
+    }
 
 }
