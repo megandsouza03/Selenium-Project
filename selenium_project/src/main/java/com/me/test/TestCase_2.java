@@ -3,6 +3,7 @@ package com.me.test;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
+import org.junit.Assert;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -56,14 +57,15 @@ public class TestCase_2 {
 
         WebElement name = driver.findElement(By.xpath("//*[@id=\"nav-link-accountList\"]")).findElement(By.className("nav-line-1"));
         System.out.println(name.getText());
-        if(!name.getText().equals("Hello, Sign in")){
-            screenshotPath = ScreenShots.takeScreenshot(driver, "T2PosFinal");
+        screenshotPath = ScreenShots.takeScreenshot(driver, "T2PosFinal");
 
+        try{
+            Assert.assertNotEquals(name.getText(),("Hello, Sign in"));
             test.log(LogStatus.PASS, "Test Successfully Signed-In the User");
             test.log(LogStatus.PASS,test.addScreenCapture(screenshotPath));
             test.log(LogStatus.INFO,"Actual: [First Page: Home Page] -> [Final Page: HomePage with user signed in]");
 
-        }else{
+        }catch (Exception e){
             screenshotPath = ScreenShots.takeScreenshot(driver, "T2PosFinal");
 
             test.log(LogStatus.FAIL, "Test Unsuccessfully Signed-In the User");

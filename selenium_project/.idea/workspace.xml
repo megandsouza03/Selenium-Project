@@ -20,32 +20,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/me/test/TestCase_2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="22" column="58" selection-start-line="22" selection-start-column="58" selection-end-line="22" selection-end-column="58" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/me/test/TestCase_1_Positive.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="83">
-              <caret line="24" column="67" selection-start-line="24" selection-start-column="67" selection-end-line="24" selection-end-column="67" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/me/test/TestCase_1_Negative.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="26" column="67" selection-start-line="26" selection-start-column="67" selection-end-line="26" selection-end-column="67" />
+            <state relative-caret-position="107">
+              <caret line="60" selection-start-line="60" selection-end-line="60" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -56,8 +32,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/me/test/TestCase_3.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="23" column="58" selection-start-line="23" selection-start-column="58" selection-end-line="23" selection-end-column="58" />
+            <state relative-caret-position="105">
+              <caret line="99" selection-start-line="99" selection-end-line="104" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -87,10 +63,10 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/me/test/CaptchCheck.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/me/driver/Driver.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/me/test/TestCase_3.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/me/test/TestCase_2.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/me/test/TestCase_1_Positive.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/me/test/TestCase_1_Negative.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/me/test/TestCase_1_Positive.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/me/test/TestCase_2.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/me/test/TestCase_3.java" />
       </list>
     </option>
   </component>
@@ -194,7 +170,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1563504653204" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1563505840902" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
@@ -307,32 +283,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1563133341181</updated>
-      <workItem from="1563133342582" duration="25349000" />
+      <workItem from="1563133342582" duration="26455000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TestCase_1_Positive - 2019.07.18 at 22h 10m 51s.xml">
-      <configuration name="TestCase_1_Positive" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TestCase_1_Negative - 2019.07.18 at 22h 12m 08s.xml">
-      <configuration name="TestCase_1_Negative" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TestCase_1_Negative - 2019.07.18 at 22h 27m 02s.xml">
-      <configuration name="TestCase_1_Negative" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TestCase_1_Negative - 2019.07.18 at 22h 27m 27s.xml">
-      <configuration name="TestCase_1_Negative" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TestCase_3 - 2019.07.18 at 22h 30m 16s.xml">
-      <configuration name="TestCase_3" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="com_me_test_in_selenium_project - 2019.07.18 at 22h 36m 07s.xml">
-      <configuration name="com.me.test in selenium_project" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TestCase_3_runTest - 2019.07.18 at 22h 36m 57s.xml">
-      <configuration name="TestCase_3.runTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="com_me_test_in_selenium_project - 2019.07.18 at 22h 38m 43s.xml">
       <configuration name="com.me.test in selenium_project" configurationId="JUnit" />
     </history-entry>
@@ -342,9 +297,30 @@
     <history-entry file="com_me_test_in_selenium_project - 2019.07.18 at 22h 49m 12s.xml">
       <configuration name="com.me.test in selenium_project" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="com_me_test_in_selenium_project - 2019.07.18 at 22h 50m 28s.xml">
+      <configuration name="com.me.test in selenium_project" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="com_me_test_in_selenium_project - 2019.07.18 at 22h 58m 52s.xml">
+      <configuration name="com.me.test in selenium_project" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="com_me_test_in_selenium_project - 2019.07.18 at 23h 04m 32s.xml">
+      <configuration name="com.me.test in selenium_project" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestCase_3_runTest - 2019.07.18 at 23h 05m 10s.xml">
+      <configuration name="TestCase_3.runTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestCase_3_runTest - 2019.07.18 at 23h 06m 18s.xml">
+      <configuration name="TestCase_3.runTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestCase_3_runTest - 2019.07.18 at 23h 06m 47s.xml">
+      <configuration name="TestCase_3.runTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestCase_3_runTest - 2019.07.18 at 23h 08m 58s.xml">
+      <configuration name="TestCase_3.runTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25349000" />
+    <option name="totallyTimeSpent" value="26455000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -357,6 +333,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Image Layers" order="0" />
       <window_info id="Capture Tool" order="1" />
@@ -423,23 +400,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="65">
-          <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="28" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/me/test/ScreenShots.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/me/driver/Driver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="141">
@@ -450,10 +410,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-15">
+          <caret line="28" column="15" selection-start-line="28" selection-start-column="15" selection-end-line="28" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/me/test/ScreenShots.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/me/test/TestCase_1_Negative.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="26" column="67" selection-start-line="26" selection-start-column="67" selection-end-line="26" selection-end-column="67" />
+        <state relative-caret-position="121">
+          <caret line="81" column="9" selection-start-line="81" selection-start-column="9" selection-end-line="81" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -462,8 +439,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/me/test/TestCase_1_Positive.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="24" column="67" selection-start-line="24" selection-start-column="67" selection-end-line="24" selection-end-column="67" />
+        <state relative-caret-position="137">
+          <caret line="103" column="27" selection-start-line="103" selection-start-column="27" selection-end-line="103" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -472,8 +449,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/me/test/TestCase_2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="22" column="58" selection-start-line="22" selection-start-column="58" selection-end-line="22" selection-end-column="58" />
+        <state relative-caret-position="107">
+          <caret line="60" selection-start-line="60" selection-end-line="60" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -482,8 +459,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/me/test/TestCase_3.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="23" column="58" selection-start-line="23" selection-start-column="58" selection-end-line="23" selection-end-column="58" />
+        <state relative-caret-position="105">
+          <caret line="99" selection-start-line="99" selection-end-line="104" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

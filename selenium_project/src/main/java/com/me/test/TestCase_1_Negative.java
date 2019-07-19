@@ -5,6 +5,7 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 
+import org.junit.Assert;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -74,18 +75,17 @@ public class TestCase_1_Negative {
      System.out.println(alert.findElement(By.className("a-alert-content")).getText());
 
      String alertText = alert.findElement(By.className("a-alert-content")).getText();
+     screenshotPath = ScreenShots.takeScreenshot(driver, "T1NegFinal");
+     try{
 
-     if(alertText.equals("Enter your name")){
-
-         screenshotPath = ScreenShots.takeScreenshot(driver, "T1NegFinal");
-
+         Assert.assertEquals(alertText,("Enter your name"));
          test.log(LogStatus.PASS, "Test Successfully prevented a registeration with incomplete information");
          test.log(LogStatus.PASS,test.addScreenCapture(screenshotPath));
          test.log(LogStatus.INFO,"Actual: [First Page: Home Page] -> [Final Page: Create Account Page]");
 
          //assert.
          //test.log(LogStatus.INFO, "Expected Value = Enter your name "+
-     }else{
+     }catch (Exception e){
 
          test.log(LogStatus.FAIL, "Test Failed to identify error");
        //  takeScreenshot(driver);

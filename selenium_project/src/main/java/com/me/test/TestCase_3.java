@@ -3,14 +3,15 @@ package com.me.test;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
+import org.junit.Assert;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+
 
 public class TestCase_3 {
 
@@ -50,9 +51,9 @@ public class TestCase_3 {
         WebElement addToCart = driver.findElement(By.id("add-to-cart-button"));
         addToCart.click();
 
-        //Thread.sleep(1000);
-        WebElement c = driver.findElement(By.xpath("/html/body/div[3]"));
-        c.click();
+        Thread.sleep(1000);
+        WebElement close = driver.findElement(By.xpath("//*[@id=\"uss-sheet-view\"]/div[2]"));
+        close.click();
 
         Thread.sleep(1000);
         driver.findElement(By.xpath("//*[@id=\"nav-cart-count\"]")).click();
@@ -81,15 +82,14 @@ public class TestCase_3 {
 
         // System.out.println("I came here");
         System.out.println(driver.getTitle());
+        screenshotPath = ScreenShots.takeScreenshot(driver, "T3PosFinal");
 
-        if(title.equals("Enter the shipping address for this order")){
-
-            screenshotPath = ScreenShots.takeScreenshot(driver, "T3PosFinal");
-
+        try{
+            Assert.assertEquals(title,("Enter the shipping address for this order"));
             test.log(LogStatus.PASS, "Test Successfully brought a product right from adding the product in the bucket and check out the product");
             test.log(LogStatus.PASS,test.addScreenCapture(screenshotPath));
             test.log(LogStatus.INFO,"Actual: [First Page: Home Page] -> [Final Page: Enter Shipping Address]");
-        }else{
+        }catch(Exception e){
 
             test.log(LogStatus.FAIL, "Test Failed to buy  a product right from adding the product in the bucket and check out the product");
             test.log(LogStatus.INFO,"Actual: Error -> Check screenshots");

@@ -4,6 +4,7 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 import org.apache.commons.io.FileUtils;
+import org.junit.Assert;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -93,16 +94,14 @@ public class TestCase_1_Positive {
 
         // System.out.println("I came here");
           System.out.println(driver.getTitle());
-
-        if(title.equals("Authentication required")){
-
-            screenshotPath = ScreenShots.takeScreenshot(driver, "T1PosFinal");
-
+        screenshotPath = ScreenShots.takeScreenshot(driver, "T1PosFinal");
+        try{
+            Assert.assertEquals(title,("Authentication required"));
             test.log(LogStatus.PASS, "Test Successfully prevented a registration with incomplete information");
             test.log(LogStatus.PASS,test.addScreenCapture(screenshotPath));
             test.log(LogStatus.INFO,"Expected: [First Page: Home Page] -> [Final Page: Authentication Required Page]");
 
-        }else{
+        }catch (Exception e){
 
             test.log(LogStatus.FAIL, "Test Failed to identify error");
             test.log(LogStatus.INFO,"Actual: Error -> Check screenshots");
