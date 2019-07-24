@@ -4,10 +4,12 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 import org.junit.Assert;
+import org.junit.ComparisonFailure;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -33,15 +35,15 @@ public class TestCase_3 {
         Thread.sleep(1000);
 
         WebElement searchBox = driver.findElement(By.id("twotabsearchtextbox"));
-        searchBox.sendKeys("headphones");
+        searchBox.sendKeys("Repel Windproof Travel Umbrella with Teflon Coating");
         Thread.sleep(1000);
-
-
+        
         WebElement searchButton = driver.findElement(By.id("nav-search")).findElement(By.className("nav-input"));
         searchButton.click();
         Thread.sleep(1000);
 
-        WebElement img = driver.findElement(By.xpath("//*[@id=\"search\"]/div[1]/div[2]/div/span[3]/div[1]/div[1]/div/div/div/div/div/div[2]/div[2]/div/div[1]/div/div/div[1]/h2/a/span"));
+       // WebElement img = driver.findElement(By.xpath("//*[@id=\"search\"]/div[1]/div[2]/div/span[3]/div[1]/div[1]/div/div/div/div/div/div[2]/div[2]/div/div[1]/div/div/div[1]/h2/a/span"));
+        WebElement img = driver.findElement(By.linkText("Repel Windproof Travel Umbrella with Teflon Coating"));
         img.click();
         Thread.sleep(1000);
 
@@ -51,8 +53,9 @@ public class TestCase_3 {
         WebElement addToCart = driver.findElement(By.id("add-to-cart-button"));
         addToCart.click();
 
-        Thread.sleep(1000);
-        WebElement close = driver.findElement(By.xpath("//*[@id=\"uss-sheet-view\"]/div[2]"));
+        Thread.sleep(5000);
+
+      /*  WebElement close = driver.findElement(By.xpath("//*[@id=\"uss-sheet-view\"]/div[2]"));
         close.click();
 
         Thread.sleep(1000);
@@ -61,7 +64,10 @@ public class TestCase_3 {
         Thread.sleep(1000);
 
         driver.findElement(By.xpath("//*[@id=\"sc-buy-box-ptc-button\"]/span/input")).click();
+        Thread.sleep(1000); */
+
         Thread.sleep(1000);
+        driver.findElement(By.id("hlb-ptc-btn-native")).click();
 
 
         WebElement apEmail = driver.findElement(By.id("ap_email"));
@@ -76,9 +82,23 @@ public class TestCase_3 {
         driver.findElement(By.id("signInSubmit")).click();
         Thread.sleep(1000);
 
-        CaptchCheck.checkForCaptch(driver,test,CaptchCheck.extent);
+
 
         String title = driver.getTitle();
+        if(CaptchCheck.checkForCaptch(driver,test,CaptchCheck.extent)){
+            Assert.fail();
+        }
+
+        try{
+            WebElement error  = driver.findElement(By.xpath("//*[@id=\"auth-warning-message-box\"]/div/h4"));
+
+            test.log(LogStatus.WARNING, "Captcha Encountered!");
+            test.log(LogStatus.WARNING, test.addScreenCapture(screenshotPath));
+            Assert.fail();
+
+        }catch (NoSuchElementException e){
+
+        }
 
         // System.out.println("I came here");
         System.out.println(driver.getTitle());
@@ -86,13 +106,15 @@ public class TestCase_3 {
 
         try{
             Assert.assertEquals(title,("Enter the shipping address for this order"));
+
             test.log(LogStatus.PASS, "Test Successfully brought a product right from adding the product in the bucket and check out the product");
             test.log(LogStatus.PASS,test.addScreenCapture(screenshotPath));
             test.log(LogStatus.INFO,"Actual: [First Page: Home Page] -> [Final Page: Enter Shipping Address]");
-        }catch(Exception e){
+        }catch(ComparisonFailure e){
 
             test.log(LogStatus.FAIL, "Test Failed to buy  a product right from adding the product in the bucket and check out the product");
             test.log(LogStatus.INFO,"Actual: Error -> Check screenshots");
+            Assert.fail();
 
         }
     }

@@ -4,6 +4,7 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 import org.junit.Assert;
+import org.junit.ComparisonFailure;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -53,7 +54,19 @@ public class TestCase_2 {
         driver.findElement(By.id("signInSubmit")).click();
         Thread.sleep(1000);
 
-        CaptchCheck.checkForCaptch(driver,test,CaptchCheck.extent);
+//        if(CaptchCheck.checkForCaptch(driver,test,CaptchCheck.extent)){
+//            Assert.fail();
+//        }
+        try{
+            WebElement error  = driver.findElement(By.xpath("//*[@id=\"auth-warning-message-box\"]/div/h4"));
+
+            test.log(LogStatus.WARNING, "Captcha Encounter!");
+            test.log(LogStatus.WARNING, test.addScreenCapture(screenshotPath));
+            Assert.fail();
+
+        }catch (Exception e){
+
+        }
 
         WebElement name = driver.findElement(By.xpath("//*[@id=\"nav-link-accountList\"]")).findElement(By.className("nav-line-1"));
         System.out.println(name.getText());
@@ -65,12 +78,13 @@ public class TestCase_2 {
             test.log(LogStatus.PASS,test.addScreenCapture(screenshotPath));
             test.log(LogStatus.INFO,"Actual: [First Page: Home Page] -> [Final Page: HomePage with user signed in]");
 
-        }catch (Exception e){
+        }catch (ComparisonFailure e){
             screenshotPath = ScreenShots.takeScreenshot(driver, "T2PosFinal");
 
             test.log(LogStatus.FAIL, "Test Unsuccessfully Signed-In the User");
             test.log(LogStatus.FAIL,test.addScreenCapture(screenshotPath));
             test.log(LogStatus.INFO,"Actual: Error -> Check screenshots");
+            Assert.fail();
 
         }
 

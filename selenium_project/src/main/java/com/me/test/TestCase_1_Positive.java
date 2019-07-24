@@ -5,9 +5,11 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
+import org.junit.ComparisonFailure;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.platform.commons.JUnitException;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import sun.rmi.runtime.Log;
@@ -48,7 +50,7 @@ public class TestCase_1_Positive {
         //Typing the Email address
         WebElement email_address = driver.findElement(By.id("ap_email"));
         Thread.sleep(1500);
-        email_address.sendKeys("abcxyz12345@yahoo.com");
+        email_address.sendKeys("megandsouzaahjcx@yahoo.com");
 
         //Typing the password
         WebElement password = driver.findElement(By.id("ap_password"));
@@ -70,7 +72,9 @@ public class TestCase_1_Positive {
         // Checking for the alert - missing customer name
         Thread.sleep(1500);
 
-        CaptchCheck.checkForCaptch(driver,test,CaptchCheck.extent);
+        if(CaptchCheck.checkForCaptch(driver,test,CaptchCheck.extent)){
+            Assert.fail();
+        }
 
 //        //-----CAPTCHA-------------
 //        try {
@@ -99,13 +103,14 @@ public class TestCase_1_Positive {
             Assert.assertEquals(title,("Authentication required"));
             test.log(LogStatus.PASS, "Test Successfully prevented a registration with incomplete information");
             test.log(LogStatus.PASS,test.addScreenCapture(screenshotPath));
-            test.log(LogStatus.INFO,"Expected: [First Page: Home Page] -> [Final Page: Authentication Required Page]");
+            test.log(LogStatus.INFO,"Actual: [First Page: Home Page] -> [Final Page: Authentication Required Page]");
 
-        }catch (Exception e){
-
-            test.log(LogStatus.FAIL, "Test Failed to identify error");
+        }catch (ComparisonFailure e){
+            screenshotPath = ScreenShots.takeScreenshot(driver, "T1PosFinal-1");
+            test.log(LogStatus.FAIL,test.addScreenCapture(screenshotPath));
+            test.log(LogStatus.FAIL, "Test Failed");
             test.log(LogStatus.INFO,"Actual: Error -> Check screenshots");
-
+            Assert.fail();
         }
 
 

@@ -6,6 +6,7 @@ import com.relevantcodes.extentreports.LogStatus;
 
 
 import org.junit.Assert;
+import org.junit.ComparisonFailure;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -20,6 +21,7 @@ public class TestCase_1_Negative {
 
     WebDriver driver ;
     ExtentTest test;
+
 
     @BeforeEach
     public void setUpTest(){
@@ -47,7 +49,7 @@ public class TestCase_1_Negative {
      //Typing the Email address
      WebElement email_address = driver.findElement(By.id("ap_email"));
      Thread.sleep(1500);
-     email_address.sendKeys("abcxyz@yahoo.com");
+     email_address.sendKeys("abcxyzz@yahoo.com");
 
      //Typing the password
      WebElement password = driver.findElement(By.id("ap_password"));
@@ -65,6 +67,10 @@ public class TestCase_1_Negative {
 
      //---------------
      driver.findElement(By.id("continue")).click();
+
+     if(CaptchCheck.checkForCaptch(driver,test,CaptchCheck.extent)){
+         Assert.fail();
+     }
 
      // Checking for the alert - missing customer name
      WebElement alert = driver.findElement(By.id("auth-customerName-missing-alert"));
@@ -85,11 +91,13 @@ public class TestCase_1_Negative {
 
          //assert.
          //test.log(LogStatus.INFO, "Expected Value = Enter your name "+
-     }catch (Exception e){
+     }catch (ComparisonFailure e){
 
          test.log(LogStatus.FAIL, "Test Failed to identify error");
        //  takeScreenshot(driver);
          test.log(LogStatus.INFO,"Actual: Error -> Check screenshots");
+         Assert.fail();
+
 
      }
 
